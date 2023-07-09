@@ -46,8 +46,8 @@
             <h1 class="bi bi-person-fill userIcon"></h1>
             <h3 id="createName">User</h3>
         </row>
-        <form>
-            <textarea class="post" required placeholder="Write Something..." oninput="textAreaSize()"></textarea>
+        <form onsubmit="createPost(event)">
+            <textarea id="post" class="post" required placeholder="Write Something..." oninput="textAreaSize()"></textarea>
             <row class="right"> <button type="submit" class="submit">Post</button></row>
         </form>
     </column>

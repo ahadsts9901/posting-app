@@ -311,3 +311,15 @@ form p {
 .logout {
     margin: auto!important;
 }
+
+.renderPost {
+    color: #212121;
+    border-top: 1em;
+    border-bottom: 0px!important;
+    border-left: 0px!important;
+    border-right: 0px!important;
+    border-color: #ddd;
+    border-style: solid;
+    width: 100%;
+    padding: 0.5em 0em;
+}
