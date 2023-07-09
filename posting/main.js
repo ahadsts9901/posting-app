@@ -1,40 +1,50 @@
-let timerInterval;
-Swal.fire({
-    title: "Loading...",
-    html: "I will close in <b></b> milliseconds.",
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: () => {
-        Swal.showLoading();
-        const b = Swal.getHtmlContainer().querySelector("b");
-        timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft();
-        }, 100);
-    },
-    willClose: () => {
-        clearInterval(timerInterval);
-    },
-}).then((result) => {
-    /* Read more about handling dismissals below */
-    if (result.dismiss === Swal.DismissReason.timer) {
-        // console.log('I was closed by the timer')
-    }
-});
+// let timerInterval;
+// Swal.fire({
+//     title: "Loading...",
+//     html: "I will close in <b></b> milliseconds.",
+//     timer: 3000,
+//     timerProgressBar: true,
+//     didOpen: () => {
+//         Swal.showLoading();
+//         const b = Swal.getHtmlContainer().querySelector("b");
+//         timerInterval = setInterval(() => {
+//             b.textContent = Swal.getTimerLeft();
+//         }, 100);
+//     },
+//     willClose: () => {
+//         clearInterval(timerInterval);
+//     },
+// }).then((result) => {
+//     /* Read more about handling dismissals below */
+//     if (result.dismiss === Swal.DismissReason.timer) {
+//         // console.log('I was closed by the timer')
+//     }
+// });
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyD9KXRY5-0GZLAhGdrMiMVBKuLiZ39FJ_Q",
+//     authDomain: "posting-f8d23.firebaseapp.com",
+//     projectId: "posting-f8d23",
+//     storageBucket: "posting-f8d23.appspot.com",
+//     messagingSenderId: "651573332789",
+//     appId: "1:651573332789:web:93c68d33bc5c22e8041a7c",
+//     measurementId: "G-R119E03BHM"
+//   };
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA93YcqOxOMeHDcoCQslObQ1FtCmRNnufY",
-    authDomain: "polling-f42f3.firebaseapp.com",
-    projectId: "polling-f42f3",
-    storageBucket: "polling-f42f3.appspot.com",
-    messagingSenderId: "29956748026",
-    appId: "1:29956748026:web:f0502c192a36adc5e44f43",
-    measurementId: "G-C56MRZG7DG",
+    apiKey: "AIzaSyD9KXRY5-0GZLAhGdrMiMVBKuLiZ39FJ_Q",
+    authDomain: "posting-f8d23.firebaseapp.com",
+    projectId: "posting-f8d23",
+    storageBucket: "posting-f8d23.appspot.com",
+    messagingSenderId: "651573332789",
+    appId: "1:651573332789:web:93c68d33bc5c22e8041a7c",
+    measurementId: "G-R119E03BHM"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-function createPoll(event) {
+function createPost(event) {
     event.preventDefault();
 
     Swal.fire({
@@ -268,7 +278,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log(user.email.slice(0, -10));
     } else {
         document.getElementById("user").innerText = "Unknown";
-        window.location.href = "../index.html"
+        // window.location.href = "../index.html"
         console.log("not signed in");
     }
 });
