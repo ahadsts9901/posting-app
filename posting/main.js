@@ -56,7 +56,7 @@ function createPost(event) {
 
     // get the values
     let post = document.getElementById("post")
-
+    let userName = document.getElementById("userNameSU").value
 
     // Get the current timestamp
     const timestamp = firebase.firestore.FieldValue.serverTimestamp();
@@ -64,6 +64,7 @@ function createPost(event) {
     db.collection("post")
         .add({
             post: post.value,
+            userName: userName,
             timestamp: timestamp,
         })
         .then((docRef) => {
@@ -90,15 +91,19 @@ function createPost(event) {
     post.value = ""
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        document.getElementById("user").innerText = user.email.slice(0, -10);
-        console.log(user.email.slice(0, -10));
-    } else {
-        document.getElementById("user").innerText = "Unknown";
-        // window.location.href = "../index.html"
-        console.log("not signed in");
-    }
+// firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//         document.getElementById("user").innerText = user.email.slice(0, -10);
+//         console.log(user.email.slice(0, -10));
+//     } else {
+//         document.getElementById("user").innerText = "Unknown";
+//         // window.location.href = "../index.html"
+//         console.log("not signed in");
+//     }
+// });
+
+document.addEventListener("DOMContentLoaded", function() {
+    renderPosts();
 });
 
 function renderPosts() {
@@ -137,14 +142,9 @@ function renderPosts() {
                       </div>`;
                     row.appendChild(drop);
 
-                    firebase.auth().onAuthStateChanged(function(user) {
-                        if (user) {
-                            let nameText = user.email.slice(0, -10);
-                            let name = document.createElement("h2");
-                            name.innerText = nameText;
-                            row.appendChild(name);
-                        }
-                    });
+                    let name = document.createElement("p");
+                    name.innerText = data.userName;
+                    row.appendChild(name);
 
                     container.appendChild(post);
                 });
@@ -157,10 +157,6 @@ function renderPosts() {
 }
 
 
-document.addEventListener("DOMContentLoaded", async function() {
-    renderPosts();
-    // await countPolls()
-});
 
 // logout function
 
