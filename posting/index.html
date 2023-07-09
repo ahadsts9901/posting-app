@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    </meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </meta>
+    <title>Polling App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta>
+    <!-- icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    </link>
+    <!-- font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./main.css">
+    </link>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <column class="header">
+        <row>
+            <div class="dropdown">
+                <button class="drop-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <h2 class="bi bi-three-dots-vertical dots"></h2>
+            </button>
+                <ul class="dropdown-menu">
+                    <li class="list"><a target="_blank" href="https://github.com/ahadsts9901" class="drop-down-options" type="button"><i class="bi bi-github icon"></i>GitHub</a></li>
+                    <li class="list"><a target="_blank" href="https://linkedin.com/in/muhammad-ahad-3136b1236" class="drop-down-options" type="button"><i class="bi bi-linkedin icon"></i>LinkedIn</a></li>
+                    <li class="list"><a target="_blank" href="https://wa.me/+923130019086" class="drop-down-options" type="button"><i class="bi bi-whatsapp icon"></i>WhatsApp</a></li>
+                    <li class="list"><a target="_blank" href="https://www.facebook.com/abdulahad.ansari.1481/" class="drop-down-options" type="button"><i class="bi bi-facebook icon"></i>Facebook</a></li>
+                    <li class="list"><a target="_blank" href="https://www.youtube.com/@AhadSTS/" class="drop-down-options" type="button"><i class="bi bi-youtube icon"></i>YouTube</a></li>
+                </ul>
+            </div>
+            <h1>Polling App</h1>
+            <button onclick="logOut()" class="logout">Sign Out</button>
+        </row>
+
+        <h2 id="user">Unknown</h2>
+
+        <button type="button" class="create" onclick="createPoll(event)">Create New Poll</button>
+
+    </column>
+
+    <column id="vote-container">
+    </column>
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11 "></script>
+    <!-- sweet alert buttons and others styling -->
+    <style>
+        .swal2-confirm:focus,
+        .swal2-deny:focus,
+        .swal2-cancel:focus,
+        .swal2-input:focus {
+            box-shadow: 0 0 4px #212121 !important;
+        }
+        
+        .swal2-input {
+            border: 1px solid #ccc !important;
+        }
+        
+        div:where(.swal2-container) div:where(.swal2-loader) {
+            border-color: #212121 #fff;
+        }
+    </style>
+    <!-- javascript -->
+    <script src="./main.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js " integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN " crossorigin="anonymous "></script>
+</body>
+
+</html>

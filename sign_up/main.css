@@ -1,0 +1,154 @@
+* {
+    font-family: "Poppins", "sans-serif";
+    font-weight: normal!important;
+    box-sizing: border-box!important;
+}
+
+::placeholder {
+    font-weight: normal !important;
+    color: #bcbcbc;
+}
+
+body {
+    /* background-color: #fff!important; */
+    color: #0099ff!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    row-gap: 2em;
+    padding: 2em 1em !important;
+    margin: 0em;
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url(../polling/index.html); */
+}
+
+i,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0em !important;
+}
+
+.drop-down {
+    background-color: #fff;
+    color: #212121;
+    border: 0px;
+    padding: 0em;
+    margin: 0em;
+}
+
+.drop-down:hover {
+    background-color: #fff;
+}
+
+.dropdown-menu.show {
+    background-color: #fff;
+    color: #212121!important;
+    border: 1px solid #212121;
+}
+
+.drop-down-options {
+    /* background-color: #fff; */
+    color: #212121;
+    border: 0px;
+}
+
+.list {
+    width: 8em;
+    margin: 0em;
+    display: inline-block;
+    margin-left: 1em;
+}
+
+a,
+.list>a {
+    color: #212121!important;
+    text-decoration: none !important;
+    margin: 0.3em !important;
+}
+
+.icon {
+    margin-right: 0.5em !important;
+}
+
+row {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 0.5em;
+    column-gap: 1em;
+}
+
+column,
+.column {
+    display: flex;
+    justify-content: center;
+    /* justify-content: right; */
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    row-gap: 1em;
+}
+
+.button {
+    color: #fff;
+    background-color: #0099ff;
+    width: 5em;
+    height: 2.5em;
+    border: 0px;
+    border-radius: 15px;
+    font-size: 1.2em;
+}
+
+.button:active {
+    background-color: #fff;
+    color: #0099ff;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    background-color: #0099ff;
+    color: #fff;
+    padding: 2em 1em!important;
+    border-radius: 20px;
+    margin: auto;
+}
+
+form a,
+form p {
+    color: #fff!important;
+}
+
+.input {
+    color: #212121;
+    background-color: #fff;
+    /* border: 1px solid #0c5c36; */
+    border: none;
+    padding: 1em 0.5em;
+    border-radius: 10px;
+    width: 13em!important;
+}
+
+.input:focus {
+    border: 2px solid #0099ff;
+}
+
+.submit {
+    background-color: #fff;
+    color: #0099ff;
+    padding: 0.5em 1em!important;
+    border: none;
+    border-radius: 10px;
+}
