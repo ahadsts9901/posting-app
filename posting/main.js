@@ -1,3 +1,10 @@
+function textAreaSize() {
+    var textArea = document.querySelector(".post");
+    textArea.style.height = "auto"; // Reset the height to auto to recalculate the size
+    textArea.style.height = textArea.scrollHeight + "px"; // Set the height to the scrollHeight of the content
+
+}
+
 // let timerInterval;
 // Swal.fire({
 //     title: "Loading...",

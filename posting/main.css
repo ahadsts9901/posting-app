@@ -20,7 +20,7 @@ body {
     padding: none;
     margin: 0em;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     /* background-image: url(../polling/index.html); */
 }
 
@@ -171,7 +171,7 @@ form p {
 
 .footer {
     width: 100%;
-    position: fixed;
+    position: sticky;
     z-index: 20;
     color: #fff!important;
     background-color: #0099ff;
@@ -180,6 +180,8 @@ form p {
     /* justify-content: space-between; */
     justify-content: space-around;
     /* justify-content: space-evenly; */
+    justify-self: left!important;
+    margin-top: auto;
 }
 
 .footer a h1 {
@@ -253,14 +255,6 @@ form p {
     height: 70%;
 }
 
-.create row {
-    justify-content: left;
-    align-items: start;
-    width: inherit;
-    padding-left: 1em;
-    color: #212121;
-}
-
 .create form {
     width: 100%;
     height: 100%;
@@ -268,9 +262,10 @@ form p {
 
 .post {
     width: 100%;
-    height: 80%;
+    height: auto;
     border: none;
     outline: none;
+    resize: none;
 }
 
 .post:focus {
@@ -285,4 +280,34 @@ form p {
     width: 100%;
     justify-content: right!important;
     align-items: center!important;
+}
+
+.profile {
+    color: #212121;
+    width: 100%;
+    height: 100%!important;
+    margin: auto;
+}
+
+.create row,
+.profile row {
+    justify-content: left;
+    align-items: start;
+    width: inherit;
+    padding-left: 1em;
+    color: #212121;
+}
+
+.profileUser {
+    font-size: 400%;
+}
+
+.leftText {
+    width: 100%;
+    text-align: left;
+    padding-left: 1em;
+}
+
+.logout {
+    margin: auto!important;
 }
