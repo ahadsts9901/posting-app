@@ -9,6 +9,13 @@
     color: #bcbcbc;
 }
 
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ddd!important;
+    padding: 1em;
+}
+
 body {
     /* background-color: #fff!important; */
     color: #212121!important;
@@ -16,12 +23,15 @@ body {
     flex-direction: column;
     justify-content: right;
     align-items: center;
-    row-gap: 2em;
-    padding: 2em 1em !important;
+    row-gap: 1em;
+    padding: 1em 0em;
     margin: 0em;
-    width: 100vw;
-    height: 100vh;
+    max-width: 425px!important;
+    min-height: 100%;
     /* background-image: url(../polling/index.html); */
+    /* border-radius: 20px; */
+    margin: auto!important;
+    border: 1px solid #212121!important;
 }
 
 i,
@@ -71,7 +81,7 @@ a,
 .list>a {
     color: #212121!important;
     text-decoration: none !important;
-    margin: 0.3em !important;
+    margin: 0.5em 0.3em !important;
 }
 
 .icon {

@@ -109,10 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function renderPosts() {
     let container = document.getElementById("postContainer");
     // console.log(container.innerHTML)
-    container.innerHTML = `
-        <a href="./create.html">
-            <h2 class="add"><i style="{ fontSize: '0.8em!important';}" class="bi bi-pencil-fill"></i> Create a post</h2>
-        </a>`; // Clear the container before rendering new posts
+    container.innerHTML = ""
     db.collection("post")
         .orderBy("timestamp", "desc")
         .get()
@@ -126,7 +123,7 @@ function renderPosts() {
                     post.className += " column renderPost";
 
                     let row = document.createElement("div");
-                    row.className += " row";
+                    row.className += "row";
                     post.appendChild(row);
 
                     let drop = document.createElement("div");

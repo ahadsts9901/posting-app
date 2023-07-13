@@ -24,22 +24,39 @@
 </head>
 
 <body>
-    <row class="header">
-        <h1 class="bi bi-body-text"></h1>
-        <h1>Posting App</h1>
-        <div class="dropdown">
-            <button class="drop-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <h2 class="bi bi-three-dots-vertical dots"></h2>
-            </button>
-            <ul class="dropdown-menu">
-                <li class="list"><a target="_blank" href="https://github.com/ahadsts9901" class="drop-down-options" type="button"><i class="bi bi-github icon"></i>GitHub</a></li>
-                <li class="list"><a target="_blank" href="https://linkedin.com/in/muhammad-ahad-3136b1236" class="drop-down-options" type="button"><i class="bi bi-linkedin icon"></i>LinkedIn</a></li>
-                <li class="list"><a target="_blank" href="https://wa.me/+923130019086" class="drop-down-options" type="button"><i class="bi bi-whatsapp icon"></i>WhatsApp</a></li>
-                <li class="list"><a target="_blank" href="https://www.facebook.com/abdulahad.ansari.1481/" class="drop-down-options" type="button"><i class="bi bi-facebook icon"></i>Facebook</a></li>
-                <li class="list"><a target="_blank" href="https://www.youtube.com/@AhadSTS/" class="drop-down-options" type="button"><i class="bi bi-youtube icon"></i>YouTube</a></li>
-            </ul>
-        </div>
-    </row>
+
+    <column class="header">
+        <row>
+            <h2 class="bi bi-body-text"></h2>
+            <h2 class="header-heading">Posting App</h2>
+            <div class="dropdown">
+                <button class="drop-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <h2 class="bi bi-three-dots-vertical dots"></h2>
+    </button>
+                <ul class="dropdown-menu">
+                    <li class="list"><a target="_blank" href="https://github.com/ahadsts9901" class="drop-down-options" type="button"><i class="bi bi-github icon"></i>GitHub</a></li>
+                    <li class="list"><a target="_blank" href="https://linkedin.com/in/muhammad-ahad-3136b1236" class="drop-down-options" type="button"><i class="bi bi-linkedin icon"></i>LinkedIn</a></li>
+                    <li class="list"><a target="_blank" href="https://wa.me/+923130019086" class="drop-down-options" type="button"><i class="bi bi-whatsapp icon"></i>WhatsApp</a></li>
+                    <li class="list"><a target="_blank" href="https://www.facebook.com/abdulahad.ansari.1481/" class="drop-down-options" type="button"><i class="bi bi-facebook icon"></i>Facebook</a></li>
+                    <li class="list"><a target="_blank" href="https://www.youtube.com/@AhadSTS/" class="drop-down-options" type="button"><i class="bi bi-youtube icon"></i>YouTube</a></li>
+                </ul>
+            </div>
+        </row>
+        <row class="footer">
+            <a href="./index.html" class="col">
+                <h3 class="bi bi-house-door"></h3>
+                <p>Home</p>
+            </a>
+            <a href="./create.html" class="col">
+                <h3 class="bi bi-plus-square-fill"></h3>
+                <p>Create</p>
+            </a>
+            <a href="./profile.html" class="col">
+                <h3 class="bi bi-person"></h3>
+                <p>Profile</p>
+            </a>
+        </row>
+    </column>
 
     <column class="create">
         <row>
@@ -51,20 +68,6 @@
             <row class="right"> <button type="submit" class="submit">Post</button></row>
         </form>
     </column>
-
-    <row class="footer">
-        <a href="./index.html" class="col">
-            <h2 class="bi bi-house-door"></h2>
-            <p>Home</p>
-        </a>
-        <a href="./create.html">
-            <h1 class="bi bi-plus-square-fill"></h1>
-        </a>
-        <a href="./profile.html" class="col">
-            <h2 class="bi bi-person"></h2>
-            <p>Profile</p>
-        </a>
-    </row>
 
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js "></script>

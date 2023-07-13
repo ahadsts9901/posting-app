@@ -9,6 +9,13 @@
     color: #ccc;
 }
 
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ddd!important;
+    padding: 1em;
+}
+
 body {
     /* background-color: #fff!important; */
     color: #212121!important;
@@ -16,12 +23,15 @@ body {
     flex-direction: column;
     justify-content: right;
     align-items: center;
-    row-gap: 1em;
+    row-gap: 0em;
     padding: none;
     margin: 0em;
-    width: 100vw;
-    min-height: 100vh;
+    max-width: 425px!important;
+    min-height: 100%;
     /* background-image: url(../polling/index.html); */
+    /* border-radius: 20px!important; */
+    margin: auto!important;
+    border: 1px solid #212121!important;
 }
 
 i,
@@ -76,7 +86,7 @@ a {
 .list>a {
     color: #212121!important;
     text-decoration: none !important;
-    margin: 0.3em !important;
+    margin: 0.5em 0.3em !important;
 }
 
 .icon {
@@ -167,25 +177,26 @@ form p {
     z-index: 20;
     color: #fff!important;
     background-color: #212121;
+    /* border-radius: none;
+    border-top-right-radius: 20px!important;
+    border-top-left-radius: 20px!important; */
+    row-gap: 0em;
+    padding-bottom: 0.5em!important;
+}
+
+.header row {
+    width: 100%;
+    justify-content: space-around;
 }
 
 .footer {
-    width: 100%;
-    position: sticky;
-    z-index: 20;
     color: #fff!important;
     background-color: #212121;
-    bottom: 0!important;
-    padding: 0.5em!important;
     /* justify-content: space-between; */
     justify-content: space-around;
     /* justify-content: space-evenly; */
     justify-self: left!important;
-    margin-top: auto;
-}
-
-.footer a h1 {
-    font-size: 200%;
+    margin-top: 0.5em;
 }
 
 .posts {
@@ -193,6 +204,7 @@ form p {
     overflow-x: hidden;
     overflow-y: auto;
     justify-content: right;
+    padding: 0px!important;
 }
 
 .posts::-moz-scrollbar {
@@ -322,4 +334,41 @@ form p {
     border-style: solid;
     width: 100%;
     padding: 0.5em 0em;
+}
+
+.renderPost .row {
+    width: 100%!important;
+    display: flex;
+    flex-direction: row!important;
+    /* column-gap: 0.5em; */
+    padding: 0.5em;
+}
+
+.renderPost .row>* {
+    display: inline-block;
+    width: auto;
+    padding: 0px!important;
+}
+
+.renderPost .row div .dropdown button {
+    background-color: #fff!important;
+    color: #212121!important;
+}
+
+.renderPost .row div .dropdown ul li {
+    font-size: 0.8em;
+    margin: 0.5em 0.3em;
+}
+
+.renderPost .row div .dropdown ul.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left: 0.5em;
+    min-width: fit-content!important;
+}
+
+.header-heading {
+    font-size: 1.2em;
 }
