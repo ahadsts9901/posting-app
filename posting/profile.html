@@ -93,25 +93,29 @@
     </style>
     <!-- javascript -->
     <script src="./main.js"></script>
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                document.getElementById("profileName").innerText = user.email.slice(0, -10);
-                document.getElementById("profEmail").innerText = user.email;
+    if (user) {
+        document.getElementById("profileName").innerText = user.email.slice(0, -10);
+        document.getElementById("profEmail").innerText = user.email;
 
-                const timestamp = user.metadata.creationTime; // Get the creation time of the user
-                const date = new Date(timestamp).toLocaleDateString(); // Convert the timestamp to a formatted date string
-                const time = new Date(timestamp).toLocaleTimeString(); // Convert the timestamp to a formatted time string
+        setInterval(function() {
+            let date = moment().format('dddd MMMM Do YYYY');
+            let time = moment().format('h:mm:ss a');
 
-                document.getElementById("profDate").innerText = date;
-                document.getElementById("profTime").innerText = time;
+            document.getElementById("profDate").innerText = date;
+            document.getElementById("profTime").innerText = time;
+        }, 1000);
 
-                console.log(user.email.slice(0, -10));
-            } else {
-                window.location.href = "../index.html";
-                console.log("not signed in");
-            }
-        });
+        console.log(user.email.slice(0, -10));
+    } else {
+        window.location.href = "../index.html";
+        console.log("not signed in");
+    }
+});
+
     </script>
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js " integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN " crossorigin="anonymous "></script>
