@@ -61,11 +61,11 @@
 
     <column class="profile">
         <h1 class="bi bi-person-fill profileUser"></h1>
-        <h3 id="createName">User</h3>
-        <p class="leftText">Email</p>
-        <p class="leftText">Date</p>
-        <p class="leftText">Time</p>
-        <button type="button" class="submit logout">Log Out</button>
+        <h3 id="profileName"></h3>
+        <p class="leftText" id="profEmail"></p>
+        <p class="leftText" id="profDate"></p>
+        <p class="leftText" id="profTime"></p>
+        <button type="button" class="submit logout" onclick="logOut()">Log Out</button>
     </column>
 
     <!-- firebase -->
@@ -93,6 +93,26 @@
     </style>
     <!-- javascript -->
     <script src="./main.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                document.getElementById("profileName").innerText = user.email.slice(0, -10);
+                document.getElementById("profEmail").innerText = user.email;
+
+                const timestamp = user.metadata.creationTime; // Get the creation time of the user
+                const date = new Date(timestamp).toLocaleDateString(); // Convert the timestamp to a formatted date string
+                const time = new Date(timestamp).toLocaleTimeString(); // Convert the timestamp to a formatted time string
+
+                document.getElementById("profDate").innerText = date;
+                document.getElementById("profTime").innerText = time;
+
+                console.log(user.email.slice(0, -10));
+            } else {
+                window.location.href = "../index.html";
+                console.log("not signed in");
+            }
+        });
+    </script>
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js " integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN " crossorigin="anonymous "></script>
 </body>

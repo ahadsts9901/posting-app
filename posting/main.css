@@ -372,3 +372,40 @@ form p {
 .header-heading {
     font-size: 1.2em;
 }
+
+.text {
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    font-size: 0.8em;
+    text-align: left;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 0em 1.3em!important
+}
+
+.text::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.text::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.text::-webkit-scrollbar-track {
+    display: none;
+}
+
+.text::-moz-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.text::-moz-scrollbar-thumb {
+    display: none;
+}
+
+.text::-moz-scrollbar-track {
+    display: none;
+}
