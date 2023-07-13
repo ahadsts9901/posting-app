@@ -35,7 +35,7 @@ function logIn(event) {
                 icon: 'success',
                 title: 'Logged In',
                 text: 'Login Successfull',
-                confirmButtonColor: "#0099ff"
+                confirmButtonColor: "#212121"
             })
             window.location.href = "../posting/index.html";
         })
@@ -45,7 +45,7 @@ function logIn(event) {
                     icon: 'error',
                     title: 'Access Denied',
                     text: 'Invalid email or password. Please enter correct credentials',
-                    confirmButtonColor: "#0099ff"
+                    confirmButtonColor: "#212121"
                 })
                 // alert("Invalid email or password. Please enter correct credentials.");
         });

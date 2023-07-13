@@ -11,7 +11,7 @@
 
 body {
     /* background-color: #fff!important; */
-    color: #0099ff!important;
+    color: #212121!important;
     display: flex;
     flex-direction: column;
     justify-content: right;
@@ -100,7 +100,7 @@ column,
 
 .button {
     color: #fff;
-    background-color: #0099ff;
+    background-color: #212121;
     width: 5em;
     height: 2.5em;
     border: 0px;
@@ -110,7 +110,7 @@ column,
 
 .button:active {
     background-color: #fff;
-    color: #0099ff;
+    color: #212121;
 }
 
 .center {
@@ -119,7 +119,7 @@ column,
 }
 
 form {
-    background-color: #0099ff;
+    background-color: #212121;
     color: #fff;
     padding: 2em 1em!important;
     border-radius: 20px;
@@ -142,12 +142,15 @@ form p {
 }
 
 .input:focus {
-    border: 2px solid #0099ff;
+    /* border: 2px solid #fff; */
+    /* background-color: #212121; */
+    /* color: #fff; */
+    border: 2px solid #212121;
 }
 
 .submit {
     background-color: #fff;
-    color: #0099ff;
+    color: #212121;
     padding: 0.5em 1em!important;
     border: none;
     border-radius: 10px;

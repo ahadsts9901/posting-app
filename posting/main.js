@@ -73,7 +73,7 @@ function createPost(event) {
                 icon: 'success',
                 title: 'Added',
                 text: 'Post Done',
-                confirmButtonColor: "#0099ff"
+                confirmButtonColor: "#212121"
             })
             window.location.href = "./index.html"
             renderPosts();
@@ -84,7 +84,7 @@ function createPost(event) {
                 icon: 'error',
                 title: 'Error',
                 text: 'Could Not Post',
-                confirmButtonColor: "#0099ff"
+                confirmButtonColor: "#212121"
             })
         });
 

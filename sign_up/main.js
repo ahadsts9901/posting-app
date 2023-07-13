@@ -39,7 +39,7 @@ function signUp(event) {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Username Already Taken',
-                confirmButtonColor: "#0099ff"
+                confirmButtonColor: "#212121"
             })
         });
 }

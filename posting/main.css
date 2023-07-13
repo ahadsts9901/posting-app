@@ -11,7 +11,7 @@
 
 body {
     /* background-color: #fff!important; */
-    color: #0099ff!important;
+    color: #212121!important;
     display: flex;
     flex-direction: column;
     justify-content: right;
@@ -37,7 +37,7 @@ h6 {
 }
 
 .drop-down {
-    background-color: #0099ff;
+    background-color: #212121;
     color: #fff;
     border: 0px;
     padding: 0em;
@@ -45,18 +45,18 @@ h6 {
 }
 
 .drop-down:hover {
-    background-color: #0099ff;
+    background-color: #212121;
 }
 
 .dropdown-menu.show {
     background-color: #fff;
-    color: #0099ff!important;
-    border: 1px solid #0099ff;
+    color: #212121!important;
+    border: 1px solid #212121;
 }
 
 .drop-down-options {
     /* background-color: #fff; */
-    color: #0099ff;
+    color: #212121;
     border: 0px;
 }
 
@@ -74,7 +74,7 @@ a {
 }
 
 .list>a {
-    color: #0099ff!important;
+    color: #212121!important;
     text-decoration: none !important;
     margin: 0.3em !important;
 }
@@ -105,7 +105,7 @@ column,
 
 .button {
     color: #fff;
-    background-color: #0099ff;
+    background-color: #212121;
     width: 5em;
     height: 2.5em;
     border: 0px;
@@ -115,7 +115,7 @@ column,
 
 .button:active {
     background-color: #fff;
-    color: #0099ff;
+    color: #212121;
 }
 
 .center {
@@ -125,7 +125,7 @@ column,
 
 
 /* form {
-    background-color: #0099ff;
+    background-color: #212121;
     color: #fff;
     padding: 2em 1em!important;
     border-radius: 20px;
@@ -148,11 +148,11 @@ form p {
 }
 
 .input:focus {
-    border: 2px solid #0099ff;
+    border: 2px solid #212121;
 }
 
 .submit {
-    background-color: #0099ff;
+    background-color: #212121;
     color: #fff;
     padding: 0.5em 1em!important;
     border: none;
@@ -166,7 +166,7 @@ form p {
     position: sticky;
     z-index: 20;
     color: #fff!important;
-    background-color: #0099ff;
+    background-color: #212121;
 }
 
 .footer {
@@ -174,7 +174,7 @@ form p {
     position: sticky;
     z-index: 20;
     color: #fff!important;
-    background-color: #0099ff;
+    background-color: #212121;
     bottom: 0!important;
     padding: 0.5em!important;
     /* justify-content: space-between; */
@@ -203,7 +203,7 @@ form p {
 
 .posts::-moz-scrollbar-thumb {
     height: 1em!important;
-    background-color: #0099ff;
+    background-color: #212121;
     border: none;
 }
 
@@ -227,7 +227,7 @@ form p {
 .posts::-webkit-scrollbar-thumb {
     height: 1em!important;
     border-radius: 10px;
-    background-color: #0099ff;
+    background-color: #212121;
     border: none;
 }
 
@@ -237,7 +237,7 @@ form p {
 }
 
 .add {
-    color: #0099ff!important;
+    color: #212121!important;
     width: 100%;
     text-align: left!important;
 }
