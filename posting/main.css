@@ -533,6 +533,7 @@ form.row {
 
 strong {
     font-weight: bold!important;
+    align-self: flex-start!important;
 }
 
 .commentEditDel {
@@ -541,6 +542,7 @@ strong {
     /* justify-self: end; */
     /* justify-self: right; */
     justify-items: right;
+    align-self: flex-start!important;
 }
 
 ul {
