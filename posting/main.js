@@ -107,14 +107,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", function() {
     renderPosts();
 });
 
 function renderPosts() {
     let container = document.getElementById("postContainer");
-    // console.log(container.innerHTML)
     container.innerHTML = "";
     db.collection("post")
         .orderBy("timestamp", "desc")
@@ -124,7 +122,6 @@ function renderPosts() {
                 container.innerText = "No Post Found";
             } else {
                 querySnapshot.forEach(function(doc) {
-
                     var data = doc.data();
                     var timestamp = data.timestamp ? data.timestamp.toDate() : new Date();
                     let post = document.createElement("div");
@@ -134,9 +131,9 @@ function renderPosts() {
                     row.className += "row";
                     post.appendChild(row);
 
-                    let image = document.createElement("h2")
-                    image.className += " bi bi-person-fill"
-                    row.appendChild(image)
+                    let image = document.createElement("h2");
+                    image.className += " bi bi-person-fill";
+                    row.appendChild(image);
 
                     let drop = document.createElement("div");
                     drop.innerHTML = `
@@ -155,22 +152,70 @@ function renderPosts() {
                     name.innerText = data.user.slice(0, -10);
                     row.appendChild(name);
 
-                    let time = document.createElement("p")
-                    time.className += " postTime"
-                    time.innerText = moment(timestamp).fromNow()
-                    row.appendChild(time)
+                    let time = document.createElement("p");
+                    time.className += " postTime";
+                    time.innerText = moment(timestamp).fromNow();
+                    row.appendChild(time);
 
                     let text = document.createElement("p");
                     text.className += " text";
                     text.innerText = data.post;
                     post.appendChild(text);
 
+                    let commentRow = document.createElement("div");
+                    commentRow.innerHTML = `
+                    <div class="dropdown hundred">
+                    <button class="drop-down comment-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <p class="bi bi-chat-square-text-fill dots hundred"></p><p class="hundred">Comments</p>
+                    </button>
+                    <ul class="dropdown-menu commentCont">
+                    <form class="commentform row" onsubmit="addComment(event,'${doc.id}')">
+                    <textarea rows="3" required class="commentinput" placeholder="Enter your comment..." ></textarea>
+                    <button type="submit" class="commentsubmit">+ Add</button>
+                    </form>
+                    </ul>
+                  </div>
+                    `;
+                    post.appendChild(commentRow);
+
+                    // Render comments
+                    let commentsDiv = document.createElement("div");
+                    commentsDiv.className = "commentsDiv";
+
+                    db.collection("post")
+                        .doc(doc.id)
+                        .collection("comments")
+                        .orderBy("timestamp", "desc")
+                        .get()
+                        .then((querySnapshot) => {
+                            if (!querySnapshot.empty) {
+                                querySnapshot.forEach((commentDoc) => {
+                                    let commentData = commentDoc.data();
+                                    let commentUser = commentData.user;
+                                    let commentText = commentData.comment;
+
+                                    let commentRow = document.createElement("div");
+                                    commentRow.className = "commentRow";
+                                    commentRow.innerHTML = `<p><strong>${commentUser.slice(0, -10)}</strong>: ${commentText}</p>`;
+                                    commentsDiv.appendChild(commentRow);
+                                });
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error getting comments:", error);
+                        });
+
+                    var ul = commentRow.querySelector(".commentCont"); // Update this line
+                    var li = document.createElement("li"); // Update this line
+                    li.appendChild(commentsDiv);
+                    ul.appendChild(li);
+
                     container.appendChild(post);
                 });
             }
         })
         .catch((error) => {
-            console.error("Error getting polls: ", error);
+            console.error("Error getting posts: ", error);
         });
 }
 
@@ -358,4 +403,60 @@ function editPost(postId) {
                 confirmButtonColor: "#212121",
             });
         });
+}
+
+function addComment(event, postId) {
+    event.preventDefault();
+
+    const commentForm = event.target;
+    const commentInput = commentForm.querySelector(".commentinput");
+    const comment = commentInput.value.trim();
+
+    if (comment === "") {
+        return;
+    }
+
+    const user = firebase.auth().currentUser;
+
+    if (!user) {
+        // User not signed in
+        return;
+    }
+
+    const commentData = {
+        comment: comment,
+        user: user.email,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    };
+
+    if (!postId) {
+        console.error("Invalid post ID");
+        return;
+    }
+
+    db.collection("post")
+        .doc(postId)
+        .collection("comments")
+        .add(commentData)
+        .then((docRef) => {
+            console.log("Comment added with ID:", docRef.id);
+            Swal.fire({
+                icon: "success",
+                title: "Added",
+                text: "Comment added successfully",
+                confirmButtonColor: "#212121",
+            });
+            renderPosts();
+        })
+        .catch((error) => {
+            console.error("Error adding comment:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Could not add comment",
+                confirmButtonColor: "#212121",
+            });
+        });
+
+    commentInput.value = "";
 }

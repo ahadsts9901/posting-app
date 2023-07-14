@@ -31,7 +31,7 @@ body {
     /* background-image: url(../polling/index.html); */
     border-radius: 20px!important;
     margin: auto!important;
-    border: 1px solid #212121!important;
+    border: 0px solid #212121!important;
 }
 
 i,
@@ -333,7 +333,7 @@ form p {
     border-color: #ddd;
     border-style: solid;
     width: 100%;
-    padding: 0.5em 0em;
+    padding: 0em;
 }
 
 .renderPost .row {
@@ -415,4 +415,106 @@ form p {
     font-size: 0.7em;
     margin-left: auto!important;
     margin-right: 1em!important;
+}
+
+.text+div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.hundred {
+    background-color: #fff;
+    color: #212121;
+    width: 100%;
+}
+
+.comment-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.8em;
+    background-color: #fff;
+    color: #212121;
+    min-width: 100%!important;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+.comment-flex:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.8em;
+    background-color: #fff;
+    color: #212121;
+    min-width: 100%!important;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+.comment-flex>* {
+    justify-self: center;
+    width: fit-content;
+}
+
+#postContainer {
+    row-gap: 0em;
+}
+
+.renderPost div .hundred ul.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left: 0.5em;
+    min-width: 100%!important;
+    border: none;
+    border-radius: 0px;
+}
+
+form.row {
+    column-gap: 1em;
+    padding: 1em!important;
+}
+
+.commentinput {
+    border-radius: 5px;
+    border: none;
+    padding: 1em!important;
+    background-color: #fff;
+    color: #212121;
+    outline: none;
+    width: 100%!important;
+}
+
+.commentsubmit {
+    border-radius: 5px;
+    border: none;
+    width: 5em!important;
+    padding: 1em!important;
+    background-color: #212121;
+    color: #fff;
+}
+
+.commentinput::placeholder {
+    color: #888!important;
+}
+
+.commentRow,
+.commentsDiv {
+    width: 100%!important;
+    padding-left: 0.5em;
+}
+
+strong {
+    font-weight: bold!important;
 }
