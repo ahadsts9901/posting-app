@@ -124,7 +124,9 @@ function renderPosts() {
                 container.innerText = "No Post Found";
             } else {
                 querySnapshot.forEach(function(doc) {
+
                     var data = doc.data();
+                    var timestamp = data.timestamp ? data.timestamp.toDate() : new Date();
                     let post = document.createElement("div");
                     post.className += " column renderPost";
 
@@ -152,6 +154,11 @@ function renderPosts() {
                     let name = document.createElement("p");
                     name.innerText = data.user.slice(0, -10);
                     row.appendChild(name);
+
+                    let time = document.createElement("p")
+                    time.className += " postTime"
+                    time.innerText = moment(timestamp).fromNow()
+                    row.appendChild(time)
 
                     let text = document.createElement("p");
                     text.className += " text";

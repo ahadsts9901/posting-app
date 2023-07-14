@@ -12,7 +12,7 @@
 html {
     width: 100vw;
     height: 100vh;
-    background-color: #ddd!important;
+    background-color: #313131!important;
     padding: 1em;
 }
 
@@ -29,7 +29,7 @@ body {
     max-width: 425px!important;
     min-height: 100%;
     /* background-image: url(../polling/index.html); */
-    /* border-radius: 20px; */
+    border-radius: 20px;
     margin: auto!important;
     border: 1px solid #212121!important;
 }
@@ -94,7 +94,9 @@ row {
     /* justify-content: space-between; */
     align-items: center;
     padding: 0.5em;
+    padding-top: 2em;
     column-gap: 1em;
+    width: 100%;
 }
 
 column,

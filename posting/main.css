@@ -12,7 +12,7 @@
 html {
     width: 100vw;
     height: 100vh;
-    background-color: #ddd!important;
+    background-color: #313131!important;
     padding: 1em;
 }
 
@@ -29,7 +29,7 @@ body {
     max-width: 425px!important;
     min-height: 100%;
     /* background-image: url(../polling/index.html); */
-    /* border-radius: 20px!important; */
+    border-radius: 20px!important;
     margin: auto!important;
     border: 1px solid #212121!important;
 }
@@ -97,7 +97,7 @@ row {
     display: flex;
     justify-content: center;
     /* justify-content: space-between; */
-    align-items: center;
+    align-items: center!important;
     padding: 0.5em;
     column-gap: 1em;
 }
@@ -177,9 +177,9 @@ form p {
     z-index: 20;
     color: #fff!important;
     background-color: #212121;
-    /* border-radius: none;
+    border-radius: none;
     border-top-right-radius: 20px!important;
-    border-top-left-radius: 20px!important; */
+    border-top-left-radius: 20px!important;
     row-gap: 0em;
     padding-bottom: 0.5em!important;
 }
@@ -340,6 +340,7 @@ form p {
     width: 100%!important;
     display: flex;
     flex-direction: row!important;
+    align-items: center;
     /* column-gap: 0.5em; */
     padding: 0.5em;
 }
@@ -408,4 +409,10 @@ form p {
 
 .text::-moz-scrollbar-track {
     display: none;
+}
+
+.postTime {
+    font-size: 0.7em;
+    margin-left: auto!important;
+    margin-right: 1em!important;
 }
