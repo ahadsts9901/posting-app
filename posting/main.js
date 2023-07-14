@@ -166,7 +166,8 @@ function renderPosts() {
                     commentRow.innerHTML = `
                     <div class="dropdown hundred">
                     <button class="drop-down comment-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <p class="bi bi-chat-square-text-fill dots hundred"></p><p class="hundred">Comments</p>
+                    <p class="bi bi-star" id="like" onclick="like(event)"> Like</p>
+                      <p class="bi bi-chat-square-text dots hundred"> Comments</p>
                     </button>
                     <ul class="dropdown-menu commentCont">
                     <form class="commentform row" onsubmit="addComment(event,'${doc.id}')">
@@ -196,7 +197,8 @@ function renderPosts() {
 
                                     let commentRow = document.createElement("div");
                                     commentRow.className = "commentRow";
-                                    commentRow.innerHTML = `<p><strong>${commentUser.slice(0, -10)}</strong>: ${commentText}</p>`;
+                                    commentRow.innerHTML = `<p><p class="dropdown-options commentEditDel" onclick="editComment('${doc.id}', '${commentDoc.id}')"><i class="bi bi-pencil-fill"></i></p>
+                                    <p class="dropdown-options commentEditDel" onclick="deleteComment('${doc.id}', '${commentDoc.id}')"><i class="bi bi-trash-fill"></i></p><strong>${commentUser.slice(0, -10)}</strong>: ${commentText}</p>`;
                                     commentsDiv.appendChild(commentRow);
                                 });
                             }
@@ -459,4 +461,187 @@ function addComment(event, postId) {
         });
 
     commentInput.value = "";
+}
+
+function editComment(postId, commentId) {
+    const user = firebase.auth().currentUser;
+
+    if (!user) {
+        // User not signed in
+        return;
+    }
+
+    db.collection("post")
+        .doc(postId)
+        .collection("comments")
+        .doc(commentId)
+        .get()
+        .then((doc) => {
+            if (!doc.exists) {
+                // Comment document not found
+                return;
+            }
+
+            const comment = doc.data();
+
+            if (comment.user !== user.email) {
+                // User is not the owner of the comment
+                Swal.fire({
+                    icon: "error",
+                    title: "Could Not Edit Comment",
+                    text: "You are not the owner of this comment",
+                    confirmButtonColor: "#212121",
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: "Edit Comment",
+                html: `
+                    <textarea required placeholder="Write a comment" id="editCommentTextarea" class="post" rows="2">${comment.comment}</textarea>
+                `,
+                showCancelButton: true,
+                confirmButtonColor: "#212121",
+                cancelButtonColor: "#212121",
+                confirmButtonText: "Save",
+                cancelButtonText: "Cancel",
+                preConfirm: () => {
+                    const updatedComment = document.getElementById("editCommentTextarea").value.trim();
+                    if (updatedComment.trim() === "") {
+                        Swal.showValidationMessage("Please fill in the field");
+                        return;
+                    }
+                    return updatedComment;
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const updatedComment = result.value;
+
+                    db.collection("post")
+                        .doc(postId)
+                        .collection("comments")
+                        .doc(commentId)
+                        .update({
+                            comment: updatedComment,
+                        })
+                        .then(() => {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Updated",
+                                text: "Comment has been updated.",
+                                confirmButtonColor: "#212121",
+                            });
+                            renderPosts();
+                        })
+                        .catch((error) => {
+                            console.error("Error updating comment:", error);
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: "Error updating comment.",
+                                confirmButtonColor: "#212121",
+                            });
+                        });
+                }
+            });
+        })
+        .catch((error) => {
+            console.error("Error getting comment:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Error getting comment.",
+                confirmButtonColor: "#212121",
+            });
+        });
+}
+
+function deleteComment(postId, commentId) {
+    const user = firebase.auth().currentUser;
+
+    if (!user) {
+        // User not signed in
+        return;
+    }
+
+    db.collection("post")
+        .doc(postId)
+        .collection("comments")
+        .doc(commentId)
+        .get()
+        .then((doc) => {
+            if (!doc.exists) {
+                // Comment document not found
+                return;
+            }
+
+            const comment = doc.data();
+
+            if (comment.user !== user.email) {
+                // User is not the owner of the comment
+                Swal.fire({
+                    icon: "error",
+                    title: "Could'nt Delete Comment",
+                    text: "You are not the owner of this comment",
+                    confirmButtonColor: "#212121",
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "This action cannot be undone.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#212121",
+                cancelButtonColor: "#212121",
+                confirmButtonText: "Delete",
+                cancelButtonText: "Cancel",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    db.collection("post")
+                        .doc(postId)
+                        .collection("comments")
+                        .doc(commentId)
+                        .delete()
+                        .then(() => {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Deleted",
+                                text: "Comment has been deleted.",
+                                confirmButtonColor: "#212121",
+                            });
+                            renderPosts();
+                        })
+                        .catch((error) => {
+                            console.error("Error deleting comment:", error);
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: "Error deleting comment.",
+                                confirmButtonColor: "#212121",
+                            });
+                        });
+                }
+            });
+        })
+        .catch((error) => {
+            console.error("Error getting comment:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Error getting comment.",
+                confirmButtonColor: "#212121",
+            });
+        });
+}
+
+function like(event) {
+    event.preventDefault();
+
+    if (event.target.className.includes("bi-star-fill")) {
+        event.target.className = "bi bi-star";
+    } else {
+        event.target.className = "bi bi-star-fill";
+    }
 }

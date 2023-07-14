@@ -433,7 +433,7 @@ form p {
 
 .comment-flex {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     column-gap: 0.8em;
     background-color: #fff;
@@ -448,7 +448,7 @@ form p {
 
 .comment-flex:hover {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     column-gap: 0.8em;
     background-color: #fff;
@@ -515,6 +515,34 @@ form.row {
     padding-left: 0.5em;
 }
 
+.commentRow {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    column-gap: 0.5em;
+}
+
+.commentCont {
+    /* border-top: 1px solid #ccc!important; */
+    border-bottom: 2px solid #ccc!important;
+}
+
 strong {
     font-weight: bold!important;
+}
+
+.commentEditDel {
+    width: fit-content!important;
+    margin: none!important;
+    /* justify-self: end; */
+    /* justify-self: right; */
+    justify-items: right;
+}
+
+ul {
+    z-index: 10!important;
+}
+
+.like {
+    z-index: 15!important;
 }
