@@ -2,6 +2,7 @@
     font-family: "Poppins", "sans-serif";
     font-weight: normal!important;
     box-sizing: border-box!important;
+    outline: none;
 }
 
 ::placeholder {
