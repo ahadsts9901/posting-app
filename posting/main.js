@@ -3,7 +3,7 @@ function textAreaSize() {
     textArea.style.height = "auto"; // Reset the height to auto to recalculate the size
 
     // Calculate the maximum height for 5 lines
-    var maxHeight = parseInt(window.getComputedStyle(textArea).lineHeight) * 5;
+    var maxHeight = parseInt(window.getComputedStyle(textArea).lineHeight) * 16;
 
     // Set the height to the scrollHeight, but not exceeding the maximum height
     textArea.style.height = Math.min(textArea.scrollHeight, maxHeight) + "px";
@@ -301,7 +301,7 @@ function editPost(postId) {
             Swal.fire({
                 title: "Edit Post",
                 html: `
-            <textarea required id="editPostTextarea" class="post" rows="5" oninput="textAreaSize">${post.post}</textarea>
+            <textarea required id="editPostTextarea" class="post" rows="8" oninput="textAreaSize">${post.post}</textarea>
           `,
 
                 showCancelButton: true,
