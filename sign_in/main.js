@@ -30,7 +30,7 @@ function logIn(event) {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            console.log("Login successful");
+            //console.log("Login successful");
             Swal.fire({
                 icon: 'success',
                 title: 'Logged In',
@@ -40,7 +40,7 @@ function logIn(event) {
             window.location.href = "../posting/index.html";
         })
         .catch((error) => {
-            console.log("Login error:", error);
+            //console.log("Login error:", error);
             Swal.fire({
                     icon: 'error',
                     title: 'Access Denied',

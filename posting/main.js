@@ -74,7 +74,7 @@ function createPost(event) {
             timestamp: timestamp,
         })
         .then((docRef) => {
-            console.log("Document written with ID:", docRef.id);
+            //console.log("Document written with ID:", docRef.id);
             Swal.fire({
                 icon: "success",
                 title: "Added",
@@ -85,7 +85,7 @@ function createPost(event) {
             renderPosts();
         })
         .catch((error) => {
-            console.error("Error adding document:", error);
+            //console.error("Error adding document:", error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -100,10 +100,10 @@ function createPost(event) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById("createName").innerText = user.email.slice(0, -10);
-        console.log(user.email.slice(0, -10));
+        //console.log(user.email.slice(0, -10));
     } else {
         window.location.href = "../index.html";
-        console.log("not signed in");
+        //console.log("not signed in");
     }
 });
 
@@ -204,7 +204,7 @@ function renderPosts() {
                             }
                         })
                         .catch((error) => {
-                            console.error("Error getting comments:", error);
+                            //console.error("Error getting comments:", error);
                         });
 
                     var ul = commentRow.querySelector(".commentCont"); // Update this line
@@ -217,7 +217,7 @@ function renderPosts() {
             }
         })
         .catch((error) => {
-            console.error("Error getting posts: ", error);
+            //console.error("Error getting posts: ", error);
         });
 }
 
@@ -228,12 +228,12 @@ function logOut() {
         .auth()
         .signOut()
         .then(() => {
-            console.log("Sign out successful");
+            //console.log("Sign out successful");
             // Redirect to the sign-in page or any other desired destination
             window.location.href = "../sign_in/index.html";
         })
         .catch((error) => {
-            console.log("Sign out error:", error);
+            //console.log("Sign out error:", error);
         });
 }
 
@@ -258,7 +258,7 @@ function deletePost(postId) {
 
             if (post.user !== user.email) {
                 // User is not the owner of the post
-                console.log("no owner");
+                //console.log("no owner");
                 Swal.fire({
                     icon: "error",
                     title: `Could'nt Delete Post`,
@@ -293,7 +293,7 @@ function deletePost(postId) {
                             renderPosts();
                         })
                         .catch((error) => {
-                            console.error("Error deleting post:", error);
+                            //console.error("Error deleting post:", error);
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -305,7 +305,7 @@ function deletePost(postId) {
             });
         })
         .catch((error) => {
-            console.error("Error getting post:", error);
+            //console.error("Error getting post:", error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -385,7 +385,7 @@ function editPost(postId) {
                             renderPosts();
                         })
                         .catch((error) => {
-                            console.error("Error updating post:", error);
+                            //console.error("Error updating post:", error);
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -397,7 +397,7 @@ function editPost(postId) {
             });
         })
         .catch((error) => {
-            console.error("Error getting post:", error);
+            //console.error("Error getting post:", error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -432,7 +432,7 @@ function addComment(event, postId) {
     };
 
     if (!postId) {
-        console.error("Invalid post ID");
+        //console.error("Invalid post ID");
         return;
     }
 
@@ -441,7 +441,7 @@ function addComment(event, postId) {
         .collection("comments")
         .add(commentData)
         .then((docRef) => {
-            console.log("Comment added with ID:", docRef.id);
+            //console.log("Comment added with ID:", docRef.id);
             Swal.fire({
                 icon: "success",
                 title: "Added",
@@ -451,7 +451,7 @@ function addComment(event, postId) {
             renderPosts();
         })
         .catch((error) => {
-            console.error("Error adding comment:", error);
+            //console.error("Error adding comment:", error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -534,7 +534,7 @@ function editComment(postId, commentId) {
                             renderPosts();
                         })
                         .catch((error) => {
-                            console.error("Error updating comment:", error);
+                            //console.error("Error updating comment:", error);
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -546,7 +546,7 @@ function editComment(postId, commentId) {
             });
         })
         .catch((error) => {
-            console.error("Error getting comment:", error);
+            //console.error("Error getting comment:", error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -614,7 +614,7 @@ function deleteComment(postId, commentId) {
                             renderPosts();
                         })
                         .catch((error) => {
-                            console.error("Error deleting comment:", error);
+                            //console.error("Error deleting comment:", error);
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -626,7 +626,7 @@ function deleteComment(postId, commentId) {
             });
         })
         .catch((error) => {
-            console.error("Error getting comment:", error);
+            //console.error("Error getting comment:", error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -643,5 +643,12 @@ function like(event) {
         event.target.className = "bi bi-star";
     } else {
         event.target.className = "bi bi-star-fill";
+    }
+
+    const dropdownMenu = event.target.parentNode.parentNode.querySelector("ul");
+    if (dropdownMenu.classList.contains("show")) {
+        dropdownMenu.classList.remove("show");
+    } else {
+        dropdownMenu.classList.add("show");
     }
 }

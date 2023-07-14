@@ -29,7 +29,7 @@ body {
     max-width: 425px!important;
     min-height: 100%;
     /* background-image: url(../polling/index.html); */
-    border-radius: 20px!important;
+    /* border-radius: 20px!important; */
     margin: auto!important;
     border: 0px solid #212121!important;
 }
@@ -178,8 +178,8 @@ form p {
     color: #fff!important;
     background-color: #212121;
     border-radius: none;
-    border-top-right-radius: 20px!important;
-    border-top-left-radius: 20px!important;
+    /* border-top-right-radius: 20px!important;
+    border-top-left-radius: 20px!important; */
     row-gap: 0em;
     padding-bottom: 0.5em!important;
 }
@@ -343,6 +343,8 @@ form p {
     align-items: center;
     /* column-gap: 0.5em; */
     padding: 0.5em;
+    padding-top: 1.5em;
+    padding-left: 1em;
 }
 
 .renderPost .row>* {
@@ -439,7 +441,7 @@ form p {
     background-color: #fff;
     color: #212121;
     min-width: 100%!important;
-    padding: 0.5em;
+    padding: 1em 0.5em;
     border: 1px solid #ccc;
     border-right: 0px;
     border-left: 0px;
@@ -454,7 +456,7 @@ form p {
     background-color: #fff;
     color: #212121;
     min-width: 100%!important;
-    padding: 0.5em;
+    padding: 1em 0.5em;
     border: 1px solid #ccc;
     border-right: 0px;
     border-left: 0px;
