@@ -198,7 +198,7 @@ function renderPosts() {
                                     let commentRow = document.createElement("div");
                                     commentRow.className = "commentRow";
                                     commentRow.innerHTML = `<p><p class="dropdown-options commentEditDel" onclick="editComment('${doc.id}', '${commentDoc.id}')"><i class="bi bi-pencil-fill"></i></p>
-                                    <p class="dropdown-options commentEditDel" onclick="deleteComment('${doc.id}', '${commentDoc.id}')"><i class="bi bi-trash-fill"></i></p><strong>${commentUser.slice(0, -10)}</strong>: ${commentText}</p>`;
+                                    <p class="dropdown-options commentEditDel" onclick="deleteComment('${doc.id}', '${commentDoc.id}')"><i class="bi bi-trash-fill"></i></p><strong>${commentUser.slice(0, -10)}:</strong> ${commentText}</p>`;
                                     commentsDiv.appendChild(commentRow);
                                 });
                             }

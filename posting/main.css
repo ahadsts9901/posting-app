@@ -478,7 +478,7 @@ form p {
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    padding-left: 0.5em;
+    /* padding-left: 0.5em; */
     min-width: 100%!important;
     border: none;
     border-radius: 0px;
@@ -515,15 +515,27 @@ form.row {
 .commentRow,
 .commentsDiv {
     width: 100%!important;
-    padding-left: 0.5em;
+    padding: 0em 1em!important;
+}
+
+.commentsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: start;
+    row-gap: 0.5em;
 }
 
 .commentRow {
     display: flex;
     justify-content: left;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 0.5em;
-    font-size: 0.8em!important;
+    padding: 1em 0.5em!important;
+    border: none;
+    background-color: #ccc;
+    border-radius: 10px;
+    width: fit-content!important;
 }
 
 .commentCont {
@@ -551,4 +563,10 @@ ul {
 
 .like {
     z-index: 15!important;
+}
+
+.commentform {
+    margin-left: 0.5em!important;
+    /* margin-right: 1em!important; */
+    /* padding-right: 2em!important; */
 }
